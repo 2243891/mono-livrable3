@@ -67,7 +67,7 @@ public class ControlleurGraphiqueCalculateur {
             if (montant <= montantMax) {
                 return change;
             } else {
-                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 100000000.00$");
+                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 1 000 000.00$");
                 return null;
             }
         } catch (NumberFormatException ex) {
@@ -85,7 +85,7 @@ public class ControlleurGraphiqueCalculateur {
             if (montant <= montantMax) {
                 return change;
             } else {
-                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 100000000.00$");
+                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 500 000.00$");
                 return null;
             }
         } catch (NumberFormatException ex) {
@@ -148,6 +148,7 @@ public class ControlleurGraphiqueCalculateur {
             createErrorDialogBox("Erreur","Erreur", e.getMessage());
         } catch (NumberFormatException e) {
             // ne rien faire
+            createErrorDialogBox("Erreur","Erreur", "Vous devez entrez un montant !");
         }
 
     }
