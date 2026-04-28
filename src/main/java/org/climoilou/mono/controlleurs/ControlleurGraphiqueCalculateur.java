@@ -61,6 +61,7 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
+        if(inputText.contains("d")) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TOTAL_AV_TAXES;
@@ -79,6 +80,7 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
+        if(inputText.contains("d")) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TAXES_APPLICABLES;
