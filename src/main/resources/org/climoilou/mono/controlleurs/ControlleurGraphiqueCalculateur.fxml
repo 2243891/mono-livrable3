@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.climoilou.mono.controlleurs.ControlleurGraphiqueCalculateur">
+   <bottom>
+      <HBox prefHeight="110.0" prefWidth="1860.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="234.0" prefWidth="1518.0">
+               <children>
+                  <HBox prefHeight="234.0" prefWidth="1844.0" spacing="100.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total des dons:" wrappingWidth="294.13671875">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="totalDonsText" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 $" wrappingWidth="341.13671875">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total de la facture avec taxes:" wrappingWidth="563.13671875">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="totalAvecTaxesText" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 $" wrappingWidth="555.13671875" VBox.vgrow="NEVER">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="100.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets bottom="120.0" left="30.0" right="30.0" top="30.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <right>
+      <StackPane fx:id="informationFactureStackPane" prefHeight="662.0" prefWidth="845.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="734.0" prefWidth="843.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Information sur la facture" textAlignment="CENTER" wrappingWidth="842.13671875">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="99.0" prefWidth="206.0" text="Nom de l'acheteur: ">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nomAcheuteurInputField" prefHeight="55.0" prefWidth="359.0" promptText="John doe" style="-fx-background-color: #919191;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="99.0" prefWidth="206.0" text="Total sans taxes">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="totalSansTaxesInputField" prefHeight="55.0" prefWidth="359.0" promptText="0,00 $" style="-fx-background-color: #919191;" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="99.0" prefWidth="206.0" text="Taxes applicables">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="taxesApplicablesInputField" prefHeight="55.0" prefWidth="359.0" promptText="0,00 $" style="-fx-background-color: #919191;" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="188.0" prefWidth="843.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="48.0" prefWidth="206.0" text="Mode de paiement">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="139.0" prefWidth="100.0">
+                           <children>
+                              <Group fx:id="modePaiementButtonGroup">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                        
+                                                      <RadioButton lineSpacing="3.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Crédit" selected="true">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="methodePaiement" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Comptant" toggleGroup="$methodePaiement" />
+                                          <RadioButton mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Débit" toggleGroup="$methodePaiement" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Group>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="217.0" prefWidth="843.0">
+                     <children>
+                        <VBox prefHeight="328.0" prefWidth="264.0">
+                           <children>
+                              <Button fx:id="ajouterFactureBouton" mnemonicParsing="false" onAction="#ajouterFacture" prefHeight="44.0" prefWidth="214.0" text="Ajouter facture" />
+                              <Text fx:id="texteSucces" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: green;" text="Votre facture a été ajoutée avec succès" wrappingWidth="216.13671875" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </StackPane>
+   </right>
+</BorderPane>
