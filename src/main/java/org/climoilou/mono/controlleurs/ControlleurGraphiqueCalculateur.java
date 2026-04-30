@@ -61,14 +61,14 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
-        if(inputText.contains("d")) return null;
+        if(inputText.contains("d") || inputText.contains("f")) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TOTAL_AV_TAXES;
             if (montant <= montantMax) {
                 return change;
             } else {
-                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 1 000 000.00$");
+                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 1 000 000.00$" + "\nVouliez-vous entrer " + change.getControlText() + " $ ?");
                 return null;
             }
         } catch (NumberFormatException ex) {
@@ -80,14 +80,14 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
-        if(inputText.contains("d")) return null;
+        if(inputText.contains("d") || inputText.contains("f")) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TAXES_APPLICABLES;
             if (montant <= montantMax) {
                 return change;
             } else {
-                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 500 000.00$");
+                createErrorDialogBox("Erreur","Erreur", "Le montant ne peut pas être plus grand que 500 000.00$" + "\nVouliez-vous entrer " + change.getControlText() + " $ ?");
                 return null;
             }
         } catch (NumberFormatException ex) {
