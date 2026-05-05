@@ -79,7 +79,7 @@ public class Transaction {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
-        return numeroTransaction == that.numeroTransaction;
+        return Objects.equals(numeroTransaction, that.numeroTransaction);
     }
 
     @Override
