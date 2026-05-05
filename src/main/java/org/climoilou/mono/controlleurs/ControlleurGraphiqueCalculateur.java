@@ -62,7 +62,8 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
-        if(inputText.contains("d") || inputText.contains("f")) return null;
+        String decimalNumberTotalAvantTaxesRegex = "([0-9]{1,7}|[0-9]{1,7}\\.[0-9]{0,2})";
+        if(!inputText.matches(decimalNumberTotalAvantTaxesRegex)) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TOTAL_AV_TAXES;
@@ -81,7 +82,8 @@ public class ControlleurGraphiqueCalculateur {
 
         String inputText = change.getControlNewText();
         if (inputText.isBlank()) return change;
-        if(inputText.contains("d") || inputText.contains("f")) return null;
+        String decimalNumberTaxeApplicablesRegex = "([0-9]{1,7}|[0-9]{1,6}\\.[0-9]{0,2})";
+        if(!inputText.matches(decimalNumberTaxeApplicablesRegex)) return null;
         try {
             double montant = Double.parseDouble(inputText);
             double montantMax = MONTANT_MAXIMUM_TAXES_APPLICABLES;
