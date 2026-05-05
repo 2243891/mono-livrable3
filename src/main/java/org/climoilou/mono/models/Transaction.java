@@ -20,7 +20,7 @@ public class Transaction {
         setTotalAvantTaxes(totalAvantTaxes);
         setTaxesApplicables(taxesApplicables);
         setModePaiement(modePaiement);
-        numeroTransaction = numeroTransaction;
+        setNumeroTransaction(numeroTransaction);
     }
 
     public void setNomAcheteur(String nomAcheteur) {
