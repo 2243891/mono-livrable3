@@ -13,7 +13,7 @@ class TransactionTest {
 
     @BeforeEach
     public void setup() {
-        transaction = new Transaction("Joe", 1000.0, 50.0, ModePaiement.CREDIT);
+        transaction = new Transaction("Joe", 1000.0, 50.0, ModePaiement.CREDIT, 0);
     }
 
     @Test

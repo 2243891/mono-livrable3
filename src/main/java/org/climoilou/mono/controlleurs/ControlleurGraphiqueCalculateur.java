@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import org.climoilou.mono.exceptions.MethodeDePaiementInconnueException;
 import org.climoilou.mono.exceptions.TaxesInvalideException;
 import org.climoilou.mono.exceptions.TotalAvantTaxesInvalideException;
+import org.climoilou.mono.exceptions.TransactionDejaExistante;
 import org.climoilou.mono.models.EtatApplication;
 import org.climoilou.mono.models.ModePaiement;
 import org.climoilou.mono.models.Transaction;
@@ -51,7 +52,7 @@ public class ControlleurGraphiqueCalculateur {
     private TextField totalSansTaxesInputField;
 
     @FXML
-    private StackPane informationFactureStackPane;
+    private TextField numeroTransactionInputField;
 
     public ControlleurGraphiqueCalculateur(EtatApplication etatApplication) {
         this.etatApplication = etatApplication;
@@ -135,7 +136,8 @@ public class ControlleurGraphiqueCalculateur {
                     nomAcheuteurInputField.getText(),
                     Double.parseDouble(totalSansTaxesInputField.getText()),
                     Double.parseDouble(taxesApplicablesInputField.getText()),
-                    determinerModePaiement()
+                    determinerModePaiement(),
+                    Integer.parseInt(numeroTransactionInputField.getText())
             );
             etatApplication.ajouterTransaction(transaction);
             BigDecimal totalFormate = BigDecimal.valueOf(etatApplication.getTotalDons()).setScale(2, RoundingMode.HALF_UP);
@@ -144,7 +146,8 @@ public class ControlleurGraphiqueCalculateur {
             updateTotalFacture(event);
             setAffichageTransactionValide(true);
         }
-         catch (TaxesInvalideException | TotalAvantTaxesInvalideException | MethodeDePaiementInconnueException | InvalidNameException e) {
+         catch (TaxesInvalideException | TotalAvantTaxesInvalideException | MethodeDePaiementInconnueException | InvalidNameException |
+                TransactionDejaExistante e) {
             System.out.println("Une erreur est survenue");
             System.err.println(e.getMessage());
             createErrorDialogBox("Erreur","Erreur", e.getMessage());
@@ -163,6 +166,7 @@ public class ControlleurGraphiqueCalculateur {
         nomAcheuteurInputField.setText("");
         totalSansTaxesInputField.setText("");
         taxesApplicablesInputField.setText("");
+        numeroTransactionInputField.setText("");
     }
 
     void updateTotalDons(BigDecimal montant) {

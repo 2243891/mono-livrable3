@@ -15,12 +15,12 @@ public class Transaction {
     private ModePaiement modePaiement;
     private int numeroTransaction;
 
-    public Transaction(String nomAcheteur, double totalAvantTaxes, double taxesApplicables, ModePaiement modePaiement) {
+    public Transaction(String nomAcheteur, double totalAvantTaxes, double taxesApplicables, ModePaiement modePaiement, int numeroTransaction) {
         setNomAcheteur(nomAcheteur);
         setTotalAvantTaxes(totalAvantTaxes);
         setTaxesApplicables(taxesApplicables);
         setModePaiement(modePaiement);
-        numeroTransaction = 0;
+        numeroTransaction = numeroTransaction;
     }
 
     public void setNomAcheteur(String nomAcheteur) {
