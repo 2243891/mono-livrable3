@@ -1,21 +1,30 @@
 package org.climoilou.mono.models;
 
+import org.climoilou.mono.exceptions.TransactionDejaExistante;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EtatApplication {
-    private Collection<Transaction> transactions;
+    private Set<Transaction> historiqueTransactions;
     private CalculateurDons calculateurDons = new CalculateurDons();
     private double totalDons;
 
     public EtatApplication() {
-        transactions = new ArrayList<>();
+        historiqueTransactions = new HashSet<>();
         totalDons = 0.0;
     }
 
     public void ajouterTransaction(Transaction t) {
-        totalDons += calculateurDons.calculerDonation(t.getMontantTotalApresTaxes(), t.getModePaiement());
-        transactions.add(t);
+
+        if (historiqueTransactions.add(t)) {
+            totalDons += calculateurDons.calculerDonation(t.getMontantTotalApresTaxes(), t.getModePaiement());
+        } else {
+            throw new TransactionDejaExistante("Le numéro de transaction que vous essayez de rentrez existe déjà.\n La transaction ne sait dont pas crée");
+        }
+
     }
 
     public double getTotalDons() {

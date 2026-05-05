@@ -4,6 +4,8 @@ import org.climoilou.mono.controlleurs.InvalidNameException;
 import org.climoilou.mono.exceptions.TaxesInvalideException;
 import org.climoilou.mono.exceptions.TotalAvantTaxesInvalideException;
 
+import java.util.Objects;
+
 public class Transaction {
     private final Double MONTANT_MAXIMUM_TOTAL_AV_TAXES = 1000000.00;
     private final Double MONTANT_MAXIMUM_TAXES_APPLICABLES = 500000.00;
@@ -11,12 +13,14 @@ public class Transaction {
     private double totalAvantTaxes;
     private double taxesApplicables;
     private ModePaiement modePaiement;
+    private int numeroTransaction;
 
     public Transaction(String nomAcheteur, double totalAvantTaxes, double taxesApplicables, ModePaiement modePaiement) {
         setNomAcheteur(nomAcheteur);
         setTotalAvantTaxes(totalAvantTaxes);
         setTaxesApplicables(taxesApplicables);
         setModePaiement(modePaiement);
+        numeroTransaction = 0;
     }
 
     public void setNomAcheteur(String nomAcheteur) {
@@ -67,4 +71,23 @@ public class Transaction {
         return taxesApplicables >= 0 && taxesApplicables <= MONTANT_MAXIMUM_TAXES_APPLICABLES;
     }
 
+    public int getNumeroTransaction() {
+        return numeroTransaction;
+    }
+
+    public void setNumeroTransaction(int numeroTransaction) {
+        this.numeroTransaction = numeroTransaction;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return numeroTransaction == that.numeroTransaction;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(numeroTransaction);
+    }
 }
