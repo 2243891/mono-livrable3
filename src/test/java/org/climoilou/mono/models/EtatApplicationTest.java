@@ -29,8 +29,7 @@ class EtatApplicationTest {
     @Test
     public void etantDonneDeuxTransactionAvecNumeroTransactionDifferentes_quandAjouteTransaction_alorsTotalDonsMisAJour(){
         Transaction transaction1 = new Transaction("Georges de la jungle", 100.00, 10, ModePaiement.CREDIT, "E1");
-        Transaction transaction2 = new Transaction("Georges de la jungle", 100.00, 10, ModePaiement.CREDIT, "E2");
-
+        Transaction transaction2 = new Transaction("Mougli de la jungle", 200.00, 200, ModePaiement.COMPTANT, "E2");
         etatApplication.ajouterTransaction(transaction1);
         etatApplication.ajouterTransaction(transaction2);
         double resultat1 = calculateurDons.calculerDonation(transaction1.getMontantTotalApresTaxes(), transaction1.getModePaiement());
@@ -43,7 +42,7 @@ class EtatApplicationTest {
     @Test
     public void etantDonneDeuxTransactionAvecMemeTransactionDifferentes_quandAjouteTransaction_alorsExceptionTransactionDejaExistanteLance(){
         Transaction transaction1 = new Transaction("Georges de la jungle", 100.00, 10, ModePaiement.CREDIT, "E1");
-        Transaction transaction2 = new Transaction("Georges de la jungle", 100.00, 10, ModePaiement.CREDIT, "E1");
+        Transaction transaction2 = new Transaction("Mougli de la jungle", 200.00, 200, ModePaiement.COMPTANT, "E1");
 
         etatApplication.ajouterTransaction(transaction1);
         assertThrows(TransactionDejaExistante.class, ()->{
