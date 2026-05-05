@@ -22,7 +22,7 @@ public class EtatApplication {
         if (historiqueTransactions.add(t)) {
             totalDons += calculateurDons.calculerDonation(t.getMontantTotalApresTaxes(), t.getModePaiement());
         } else {
-            throw new TransactionDejaExistante("Le numéro de transaction que vous essayez de rentrez existe déjà.\nDonc a transaction n'est pas crée.");
+            throw new TransactionDejaExistante("Le numéro de transaction que vous essayez de rentrez existe déjà.\nDonc la transaction n'est pas crée.");
         }
 
     }
