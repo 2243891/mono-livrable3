@@ -137,7 +137,7 @@ public class ControlleurGraphiqueCalculateur {
                     Double.parseDouble(totalSansTaxesInputField.getText()),
                     Double.parseDouble(taxesApplicablesInputField.getText()),
                     determinerModePaiement(),
-                    Integer.parseInt(numeroTransactionInputField.getText())
+                    numeroTransactionInputField.getText()
             );
             etatApplication.ajouterTransaction(transaction);
             BigDecimal totalFormate = BigDecimal.valueOf(etatApplication.getTotalDons()).setScale(2, RoundingMode.HALF_UP);

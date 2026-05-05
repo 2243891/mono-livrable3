@@ -78,12 +78,12 @@
                   </Text>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="99.0" prefWidth="206.0" text="Numéro de la transaction: ">
+                        <Label prefHeight="99.0" prefWidth="206.0" text="Numéro transaction: ">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="numeroTransactionInputField" prefHeight="55.0" prefWidth="359.0" promptText="1234" style="-fx-background-color: #919191;" />
+                        <TextField fx:id="numeroTransactionInputField" prefHeight="55.0" prefWidth="359.0" promptText="4224ABOT" style="-fx-background-color: #919191;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">

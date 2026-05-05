@@ -13,9 +13,9 @@ public class Transaction {
     private double totalAvantTaxes;
     private double taxesApplicables;
     private ModePaiement modePaiement;
-    private int numeroTransaction;
+    private String numeroTransaction;
 
-    public Transaction(String nomAcheteur, double totalAvantTaxes, double taxesApplicables, ModePaiement modePaiement, int numeroTransaction) {
+    public Transaction(String nomAcheteur, double totalAvantTaxes, double taxesApplicables, ModePaiement modePaiement, String numeroTransaction) {
         setNomAcheteur(nomAcheteur);
         setTotalAvantTaxes(totalAvantTaxes);
         setTaxesApplicables(taxesApplicables);
@@ -71,11 +71,7 @@ public class Transaction {
         return taxesApplicables >= 0 && taxesApplicables <= MONTANT_MAXIMUM_TAXES_APPLICABLES;
     }
 
-    public int getNumeroTransaction() {
-        return numeroTransaction;
-    }
-
-    public void setNumeroTransaction(int numeroTransaction) {
+    public void setNumeroTransaction(String numeroTransaction) {
         this.numeroTransaction = numeroTransaction;
     }
 

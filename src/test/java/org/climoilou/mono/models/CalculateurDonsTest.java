@@ -27,7 +27,6 @@ class CalculateurDonsTest {
     void etantDonneTotalValide_quandCalculeDonation_alorsRetourneMonantDonation(ModePaiement modePaiement, double totalValide, double resultatAttendu) {
         double donations = calculateurDons.calculerDonation(totalValide, modePaiement);
         donations = BigDecimal.valueOf(donations).setScale(2, RoundingMode.HALF_UP).doubleValue();
-
         assertEquals(resultatAttendu, donations);
     }
 }
